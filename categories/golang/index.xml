@@ -2,12 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>流利</title>
-    <link>http://ring0li.github.io/index.xml</link>
+    <link>http://ring0li.github.io/categories/golang/index.xml</link>
     <description>Recent content on 流利</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 08 Dec 2016 18:21:54 +0800</lastBuildDate>
-    <atom:link href="http://ring0li.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://ring0li.github.io/categories/golang/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>first</title>
