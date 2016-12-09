@@ -2,28 +2,28 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Post-rsses on 流利</title>
-    <link>http://ring0li.github.io/post/index.xml</link>
+    <link>awesome-php.com/post/index.xml</link>
     <description>Recent content in Post-rsses on 流利</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
+    <language>zh-CN</language>
     <lastBuildDate>Thu, 08 Dec 2016 18:21:54 +0800</lastBuildDate>
-    <atom:link href="http://ring0li.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="awesome-php.com/post/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>first</title>
-      <link>http://ring0li.github.io/post/first/</link>
+      <link>/awesome-php.com/post/first/</link>
       <pubDate>Thu, 08 Dec 2016 18:21:54 +0800</pubDate>
       
-      <guid>http://ring0li.github.io/post/first/</guid>
+      <guid>/awesome-php.com/post/first/</guid>
       <description></description>
     </item>
     
     <item>
       <title>first</title>
-      <link>http://ring0li.github.io/content/post/first/</link>
+      <link>/awesome-php.com/content/post/first/</link>
       <pubDate>Thu, 08 Dec 2016 18:21:32 +0800</pubDate>
       
-      <guid>http://ring0li.github.io/content/post/first/</guid>
+      <guid>/awesome-php.com/content/post/first/</guid>
       <description></description>
     </item>
     

@@ -2,23 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://blog.awesome-php.com/</loc>
+    <loc>/awesome-php.com/</loc>
     <lastmod>2016-12-08T18:21:54+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.awesome-php.com/post/first/</loc>
+    <loc>/awesome-php.com/post/first/</loc>
     <lastmod>2016-12-08T18:21:54+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.awesome-php.com/content/post/first/</loc>
+    <loc>/awesome-php.com/content/post/first/</loc>
     <lastmod>2016-12-08T18:21:32+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://blog.awesome-php.com/about/</loc>
+    <loc>/awesome-php.com/about/</loc>
     <lastmod>2016-12-08T18:19:34+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
 </urlset>
