@@ -15,7 +15,7 @@
   <script src="/js/bootstrap.min.js"></script>
   <script src="/js/holder.min.js" type='text/javascript'></script>
   <link rel="stylesheet" href="/css/style.css">
-  <link rel="canonical" href="/awesome-php.com/content/post/first/">
+  <link rel="canonical" href="/awesome-php.com/post/python%E5%8D%87%E7%BA%A7openssl%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">
       
    </head>
    <body>
@@ -54,10 +54,10 @@
   <div class="panel panel-default">
     <div class="panel-body">
       <div id="post" >
-	<p><h2> first </h2>
+	<p><h2> python升级openssl遇到的问题 </h2>
 	  
 	  <small class="text-muted">
-	    posted by:&nbsp;<time datetime="2016-12-08 18:21:32 &#43;0800 CST" itemprop="datePublished">Thu Dec 8, 2016 </time>
+	    posted by:&nbsp;<time datetime="2016-12-16 16:36:39 &#43;0800 CST" itemprop="datePublished">Fri Dec 16, 2016 </time>
 	  </small>
 	</p>
 
@@ -71,35 +71,72 @@
 	<hr/>
 	
 
+<h3 id="安装openssl-1-0-2j">安装openssl-1.0.2j</h3>
+
+<pre><code>./config --prefix=/usr/local/ssl -fPIC shared &amp;&amp; make &amp;&amp; make install
+</code></pre>
+
+<p>###安装python-2.7.12</p>
+
+<pre><code>vim Python-2.7.12/Modules/Setup
+</code></pre>
+
+<p>去掉这4行注释</p>
+
+<pre><code>#SSL=/usr/local/ssl
+#_ssl _ssl.c \
+#        -DUSE_SSL -I$(SSL)/include -I$(SSL)/include/openssl \
+#        -L$(SSL)/lib -lssl -lcrypto
+
+./configure --prefix=/home/work/lib/python-2.7.12 &amp;&amp; make &amp;&amp; make install
+ln -s /home/work/lib/python-2.7.12/bin/python /usr/local/bin/python
+</code></pre>
+
+<p>安装mitmproxy</p>
+
+<pre><code>python get-pip.py
+pip install mitmproxy 
+</code></pre>
+
+<p>运行mitmproxy，报错提示</p>
+
+<pre><code>“ImportError: /home/work/lib/python-2.7.12/lib/python2.7/site-packages/cryptography/hazmat/bindings/_openssl.so: undefined symbol: EC_GROUP_new_curve_GF2m”
+</code></pre>
+
+<pre><code>ldd /home/work/lib/python-2.7.12/lib/python2.7/site-packages/cryptography/hazmat/bindings/_openssl.so
+</code></pre>
+
+<p>发现加载的动态链接是旧版本openssl
+增加动态库搜索目录</p>
+
+<pre><code>echo &quot;/usr/local/ssl/lib&quot; &gt;&gt; /etc/ld.so.conf
+ldconfig
+python -c &quot;import ssl; print ssl.OPENSSL_VERSION&quot;
+</code></pre>
+
+<p>输出“OpenSSL 1.0.2j  26 Sep 2016”，运行mitmproxy也ok</p>
+
+
 	
 	<br/>
 
 <p>
   
-    <strong>Categories</strong>:
-
 
 	  
-	<a class="btn btn-default btn-xs" href="/categories/development">Development</a>
-	
-	<a class="btn btn-default btn-xs" href="/categories/golang">GoLang</a>
-	
 
 	<br/>
 	
 	
-<strong>Tags:</strong>
-  <a class=" label label-danger" href="/tags/development">Development</a> <a class=" label label-danger" href="/tags/golang">golang</a>
-
 
 	
 	</p>
 	<div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'ring0li';
-    var disqus_identifier = '\/awesome-php.com\/content\/post\/first\/';
-    var disqus_title = 'first';
-    var disqus_url = '\/awesome-php.com\/content\/post\/first\/';
+    var disqus_identifier = '\/awesome-php.com\/post\/python%E5%8D%87%E7%BA%A7openssl%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98\/';
+    var disqus_title = 'python升级openssl遇到的问题';
+    var disqus_url = '\/awesome-php.com\/post\/python%E5%8D%87%E7%BA%A7openssl%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98\/';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -111,7 +148,7 @@
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
-	<div class="ds-thread" data-thread-key="/awesome-php.com/content/post/first/" data-title="first" data-url="/awesome-php.com/awesome-php.com/content/post/first/"></div>
+	<div class="ds-thread" data-thread-key="/awesome-php.com/post/python%E5%8D%87%E7%BA%A7openssl%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/" data-title="python升级openssl遇到的问题" data-url="/awesome-php.com/awesome-php.com/post/python%E5%8D%87%E7%BA%A7openssl%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/"></div>
 
 
 <script type="text/javascript">

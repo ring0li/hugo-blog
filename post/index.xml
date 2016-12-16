@@ -6,8 +6,63 @@
     <description>Recent content in Post-rsses on 流利</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 08 Dec 2016 18:21:54 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 16 Dec 2016 16:36:39 +0800</lastBuildDate>
     <atom:link href="awesome-php.com/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>python升级openssl遇到的问题</title>
+      <link>/awesome-php.com/post/python%E5%8D%87%E7%BA%A7openssl%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Fri, 16 Dec 2016 16:36:39 +0800</pubDate>
+      
+      <guid>/awesome-php.com/post/python%E5%8D%87%E7%BA%A7openssl%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <description>
+
+&lt;h3 id=&#34;安装openssl-1-0-2j&#34;&gt;安装openssl-1.0.2j&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;./config --prefix=/usr/local/ssl -fPIC shared &amp;amp;&amp;amp; make &amp;amp;&amp;amp; make install
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;###安装python-2.7.12&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;vim Python-2.7.12/Modules/Setup
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;去掉这4行注释&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#SSL=/usr/local/ssl
+#_ssl _ssl.c \
+#        -DUSE_SSL -I$(SSL)/include -I$(SSL)/include/openssl \
+#        -L$(SSL)/lib -lssl -lcrypto
+
+./configure --prefix=/home/work/lib/python-2.7.12 &amp;amp;&amp;amp; make &amp;amp;&amp;amp; make install
+ln -s /home/work/lib/python-2.7.12/bin/python /usr/local/bin/python
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;安装mitmproxy&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;python get-pip.py
+pip install mitmproxy 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;运行mitmproxy，报错提示&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;“ImportError: /home/work/lib/python-2.7.12/lib/python2.7/site-packages/cryptography/hazmat/bindings/_openssl.so: undefined symbol: EC_GROUP_new_curve_GF2m”
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;ldd /home/work/lib/python-2.7.12/lib/python2.7/site-packages/cryptography/hazmat/bindings/_openssl.so
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;发现加载的动态链接是旧版本openssl
+增加动态库搜索目录&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;echo &amp;quot;/usr/local/ssl/lib&amp;quot; &amp;gt;&amp;gt; /etc/ld.so.conf
+ldconfig
+python -c &amp;quot;import ssl; print ssl.OPENSSL_VERSION&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;输出“OpenSSL 1.0.2j  26 Sep 2016”，运行mitmproxy也ok&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>first</title>
