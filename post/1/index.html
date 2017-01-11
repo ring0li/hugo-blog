@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
    <head>
-	<meta name="generator" content="Hugo 0.17" />
    <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,8 +15,8 @@
   <script src="/js/bootstrap.min.js"></script>
   <script src="/js/holder.min.js" type='text/javascript'></script>
   <link rel="stylesheet" href="/css/style.css">
-  <link rel="canonical" href="/">
-    <link href="/index.xml" rel="alternate" type="application/rss+xml" title="流利" />  
+  <link rel="canonical" href="/post/1/">
+      
    </head>
    <body>
      <header class="navbar navbar-default navbar-fixed-top" id="top" role="navigation">
@@ -37,7 +36,7 @@
       <ul class="nav navbar-nav">
 	
 	
-	<li  class="active"   ><a href="/">Home</a></li>
+	<li  ><a href="/">Home</a></li>
 	
 	
 	<li > <a href="/about/" >about</a></li>
@@ -52,46 +51,99 @@
        <div class="row">	   
 	     <div class="col-md-8 col-md-offset-2">
 		 
-	            
-    <div class="panel panel-default">
-      <div class="panel-body">
-	<div>
-	<span class="text-primary">阅读、思考、生活、技术</span>
-	<div class="pull-right">
-		<a  target="_blank" href="https://github.com/ring0li"><img src="/images/github-logo-icon-2.png" width="25px" height="25px">&nbsp;GitHub</a>
-		<a target="_blank"  href="/index.xml"><img src="/images/rss-feed-logo-symbol-icon-10.png" width="25px" height="25px">&nbsp;RSS</a>
-	</div>
-	</div>
-  
-    
-<p class="categories">
-      <a class="btn btn-default btn-xs text-capitalize" href="/categories/php">php</a>&nbsp;<a class="btn btn-default btn-xs text-capitalize" href="/categories/python">python</a>&nbsp;
-</p>
-  
-  
-    
-  
-      </div>
-    </div>    
-
-    <div class="panel panel-default">
-    <div class="panel-heading">
-      <span class="glyphicon glyphicon-list-alt"></span>&nbsp;<b>Posts</b>
-    </div>
+  <div class="panel panel-default">
     <div class="panel-body">
-      <div class="list-group">
-	
-	
-	<a href="/post/php%E6%8A%8Ahtml%E8%BD%AC%E6%8D%A2%E4%B8%BApng%E5%9B%BE%E7%89%87/" class="list-group-item"> <span class="badge">Jan 11, 2017</span>php把html转换为png图片</a>
+      <div id="post" >
+	<p><h2>  </h2>
+	  
+	  <small class="text-muted">
+	    posted by:&nbsp;<time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">Mon Jan 1, 0001 </time>
+	  </small>
+	</p>
 
-	<a href="/post/python%E5%8D%87%E7%BA%A7openssl%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/" class="list-group-item"> <span class="badge">Dec 16, 2016</span>python升级openssl遇到的问题</a>
+	<p>
+	  
+	  <a href='/'><span class="label label-danger"></span></a>
+
+	</p>
+
+
+	<hr/>
+	
+
+<h1 id="php把html转换为png图片">php把html转换为png图片</h1>
+
+<p>标签（空格分隔）： PHP</p>
+
+<hr />
+
+<pre><code class="language-shell">全局安装
+curl -sS https://getcomposer.org/installer | php
+mv composer.phar /usr/local/bin/composer
+
+替换国内镜像
+composer config -g repo.packagist composer https://packagist.phpcomposer.com
+
+
+composer require anam/phantommagick
+composer require anam/phantomjs-linux-x86-binary
+
+
+下载mac版phantomjs，
+wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-macosx.zip
+然后
+cp -rf /Users/liuli/Downloads/phantomjs-2.1.1-macosx/  /Users/liuli/work/test/vendor/anam/phantomjs-linux-x86-binary/
+</code></pre>
+
+<pre><code class="language-php">运行代码
+require_once &quot;vendor/autoload.php&quot;;
+
+	use Anam\PhantomMagick\Converter;
+
+	$conv = new \Anam\PhantomMagick\Converter();
+	$conv-&gt;source('http://baidu.com')
+		-&gt;toPng()
+		-&gt;save('baidu.png');
+</code></pre>
+
+
+	
+	<br/>
+
+<p>
+  
+
+	  
+
+	<br/>
+	
+	
+
+	
+	</p>
+	
+
+
+	<div class="ds-thread" data-thread-key="/post/1/" data-title="" data-url="//post/1/"></div>
+
+
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"heyuanfei"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+
+
 
       </div>
-      
-    
-    </div>
-    </div>
-    
+  </div>
+</div>
 
 	       </div>
 	 </div>

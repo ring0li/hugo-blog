@@ -6,8 +6,45 @@
     <description>Recent content in Post-rsses on 流利</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 16 Dec 2016 16:36:39 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 11 Jan 2017 11:40:52 +0800</lastBuildDate>
     <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>php把html转换为png图片</title>
+      <link>/post/php%E6%8A%8Ahtml%E8%BD%AC%E6%8D%A2%E4%B8%BApng%E5%9B%BE%E7%89%87/</link>
+      <pubDate>Wed, 11 Jan 2017 11:40:52 +0800</pubDate>
+      
+      <guid>/post/php%E6%8A%8Ahtml%E8%BD%AC%E6%8D%A2%E4%B8%BApng%E5%9B%BE%E7%89%87/</guid>
+      <description>&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;全局安装
+curl -sS https://getcomposer.org/installer | php
+mv composer.phar /usr/local/bin/composer
+
+替换国内镜像
+composer config -g repo.packagist composer https://packagist.phpcomposer.com
+
+
+composer require anam/phantommagick
+composer require anam/phantomjs-linux-x86-binary
+
+
+下载mac版phantomjs，
+wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-macosx.zip
+然后
+cp -rf /Users/liuli/Downloads/phantomjs-2.1.1-macosx/  /Users/liuli/work/test/vendor/anam/phantomjs-linux-x86-binary/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;运行代码
+require_once &amp;quot;vendor/autoload.php&amp;quot;;
+
+	use Anam\PhantomMagick\Converter;
+
+	$conv = new \Anam\PhantomMagick\Converter();
+	$conv-&amp;gt;source(&#39;http://baidu.com&#39;)
+		-&amp;gt;toPng()
+		-&amp;gt;save(&#39;baidu.png&#39;);
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>python升级openssl遇到的问题</title>
